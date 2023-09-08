@@ -4,7 +4,7 @@ import { createStore } from './store' // if using Vuex
 import router from './router' // if using Vue Router
 import axios from 'axios'
 
-axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;
+axios.defaults.baseURL = import.meta.env.VITE_REMOTE_API;
 
 const store = createStore(); // if using Vuex
 
