@@ -1,15 +1,14 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router/index'
-import store from './store/index'
+import { createApp } from 'vue'
+import MyApp from './App.vue'
+import { createStore } from './store' // if using Vuex
+import router from './router' // if using Vue Router
 import axios from 'axios'
-
-Vue.config.productionTip = false
 
 axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+const store = createStore(); // if using Vuex
+
+const app = createApp(MyApp);
+app.use(store); // if using Vuex
+app.use(router); // if using Vue Router
+app.mount('#app');
